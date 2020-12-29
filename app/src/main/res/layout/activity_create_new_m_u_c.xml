@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.tapin.CreateNewMUCActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/createNewMUCToolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#005AFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:logo="@drawable/asset1ldpi"
+        app:popupTheme="@style/AppTheme"
+        app:title="TapIn"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:titleTextColor="#FFFFFF" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/createNewMUCRecyclerView"
+        android:layout_width="wrap_content"
+        android:layout_height="645dp"
+        android:layout_marginTop="168dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:itemCount="10"
+        tools:layout_conversion_absoluteHeight="645dp"
+        tools:layout_conversion_absoluteWidth="411dp"
+        tools:listitem="@layout/display_contacts" />
+
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/createGroupFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:fillViewport="true"
+        android:foregroundGravity="bottom|center"
+        android:gravity="center"
+        android:padding="5dp"
+        android:paddingBottom="20dp"
+        android:text="@string/create_group"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+        android:textColor="@color/fui_bgGoogle"
+        android:theme="@style/MyMaterialTheme"
+        android:tooltipText="Create Group"
+        android:visibility="visible"
+        app:backgroundTint="@color/colorAccent"
+        app:fabSize="auto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/groupMembersLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/createNewMUCRecyclerView"
+        app:layout_constraintTop_toBottomOf="@id/createNewMUCToolbar"
+        tools:layout_editor_absoluteX="0dp">
+
+        <EditText
+            android:id="@+id/groupNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints="@string/group_name"
+            android:background="@drawable/round_edit_text"
+            android:hint="@string/group_name"
+            android:inputType="text"
+            android:padding="5dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <com.hootsuite.nachos.NachoTextView
+            android:id="@+id/group_members_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_edit_text"
+            android:hint="@string/group_members"
+            android:padding="5dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:chipBackground="@color/colorAccent"
+            app:chipHeight="30dp"
+            app:chipHorizontalSpacing="2dp"
+            app:chipTextColor="@android:color/background_light"
+            app:chipTextSize="16dp"
+            app:chipVerticalSpacing="3dp" />
+
+
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

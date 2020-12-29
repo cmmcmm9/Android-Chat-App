@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.tapin.ViewProfile">
+
+    <ImageView
+        android:id="@+id/user_profile_image_view"
+        android:layout_width="205dp"
+        android:layout_height="169dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/change_avatar_button"
+        android:layout_width="185dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="275dp"
+        android:background="@drawable/round_button"
+        android:text="Change Avatar"
+        android:textColor="@color/common_google_signin_btn_text_dark_default"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/user_view_profile_display_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="215dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@tools:sample/full_names" />
+
+    <TextView
+        android:id="@+id/view_profile_available_today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="380dp"
+        android:text="Weekday Availability"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/view_profile_weekend_avaible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="508dp"
+        android:text="Weekend Availability"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="409dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="360dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/wednesday_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_border"
+
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="420dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@id/tuesday_layout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/wednesday_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="W" />
+
+        <TextView
+            android:id="@+id/wednesday_text_view_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLines="3"
+            android:textSize="12sp"
+            tools:text="@tools:sample/date/hhmmss[0]" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/friday_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:background="@drawable/custom_border"
+        android:clickable="true"
+        android:layout_marginTop="420dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@id/thursday_layout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/friday_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="F" />
+
+        <TextView
+            android:id="@+id/friday_text_view_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLines="3"
+            android:textSize="12sp"
+            android:clickable="true"
+            tools:text="@tools:sample/date/hhmmss[0]" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tuesday_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:background="@drawable/custom_border"
+        android:clickable="true"
+
+        android:layout_marginTop="420dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@id/monday_layout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tuesday_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="T" />
+
+        <TextView
+            android:id="@+id/tuesday_text_view_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLines="3"
+            android:textSize="12sp"
+            android:clickable="true"
+            tools:text="@tools:sample/date/hhmmss" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/monday_layout"
+        android:background="@drawable/custom_border"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="420dp"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/monday_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="M" />
+
+        <TextView
+            android:id="@+id/monday_text_view_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:gravity="center"
+            android:maxLines="3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textSize="12sp"
+            tools:text="@tools:sample/date/hhmmss" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/thursday_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:background="@drawable/custom_border"
+        android:clickable="true"
+        android:layout_marginTop="420dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@id/wednesday_layout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/thursday_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="TH" />
+
+        <TextView
+            android:id="@+id/thursday_text_view_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:maxLines="3"
+            android:clickable="true"
+            android:textSize="12sp"
+            tools:text="@tools:sample/date/hhmmss[0]" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sunday_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_border"
+        android:clickable="true"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="545dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@id/saturday_layout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/sunday_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="Sun" />
+
+        <TextView
+            android:id="@+id/sunday_text_view_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:gravity="center"
+            android:maxLines="3"
+            android:textSize="12sp"
+            tools:text="@tools:sample/date/hhmmss[0]" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/saturday_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:background="@drawable/custom_border"
+        android:clickable="true"
+        android:layout_marginStart="130dp"
+        android:layout_marginTop="545dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/saturday_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="Sat" />
+
+        <TextView
+            android:id="@+id/saturday_text_view_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:gravity="center"
+            android:maxLines="3"
+            android:textSize="12sp"
+            tools:text="@tools:sample/date/hhmmss[0]" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

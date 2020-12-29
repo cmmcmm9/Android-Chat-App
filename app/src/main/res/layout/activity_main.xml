@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#005AFF"
+    android:paddingTop="10dp"
+    android:theme="@android:style/Theme.NoTitleBar"
+    tools:context=".LoginPage">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="399dp"
+        android:layout_height="262dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="440dp"
+        android:background="#005AFF"
+        android:contentDescription="@string/tapin_app_logo"
+        android:paddingTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo"
+        tools:srcCompat="@drawable/logo" />
+
+    <EditText
+        android:id="@+id/email_address"
+        android:layout_width="306dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="320dp"
+        android:layout_marginBottom="368dp"
+        android:background="@drawable/round_edit_text"
+        android:drawableStart="@drawable/email_image_asset"
+        android:ems="10"
+        android:fadingEdge="horizontal|vertical"
+        android:hint="@string/email_address"
+        android:inputType="textEmailAddress"
+        android:padding="5dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="306dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="379dp"
+        android:layout_marginBottom="309dp"
+        android:background="@drawable/round_edit_text"
+        android:drawableStart="@drawable/password_image_asset"
+        android:ems="10"
+
+        android:fadingEdge="horizontal|vertical"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:padding="5dip"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="317dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="479dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="198dp"
+        android:background="@drawable/round_button"
+        android:contentDescription="@string/login"
+        android:text="@string/login"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/register"
+        android:layout_width="59dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="551dp"
+        android:layout_marginEnd="176dp"
+        android:layout_marginBottom="157dp"
+        android:autoLink="web"
+        android:clickable="true"
+        android:ems="10"
+        android:inputType="none"
+        android:linksClickable="true"
+        android:text="@string/register"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#FFFFFF"
+        android:textColorLink="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/forgot_password"
+        android:layout_width="198dp"
+        android:layout_height="23dp"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="439dp"
+        android:layout_marginEnd="107dp"
+        android:layout_marginBottom="275dp"
+        android:autoLink="web"
+        android:clickable="true"
+        android:ems="10"
+        android:inputType="none"
+        android:linksClickable="true"
+        android:text="@string/forgot_password_click_here"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#FFFFFF"
+        android:textColorLink="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="167dp"
+        android:layout_marginLeft="167dp"
+        android:layout_marginTop="327dp"
+        android:layout_marginEnd="168dp"
+        android:layout_marginRight="168dp"
+        android:layout_marginBottom="328dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+<!--    <com.airbnb.lottie.LottieAnimationView-->
+<!--        android:id="@+id/animation_view"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:lottie_rawRes="@raw/bluecheckmark"-->
+<!--        app:lottie_loop="true"-->
+<!--        app:lottie_autoPlay="true" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    <!--        app:lottie_url="https://assets3.lottiefiles.com/private_files/lf30_MHzvzt.json"-->

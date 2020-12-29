@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.tapin.DisplayContactsActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_displayContacts"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#005AFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:logo="@drawable/asset1ldpi"
+        app:popupTheme="@style/AppTheme"
+        app:title="TapIn"
+        app:titleTextAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:titleTextColor="#FFFFFF" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swiperefreshContacts"
+        android:layout_width="match_parent"
+        android:layout_height="645dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/createNewMULinearLayout">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/displayContactsRecyclerActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/createNewMULinearLayout"
+        tools:itemCount="10"
+        tools:listitem="@layout/display_contacts" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <LinearLayout
+        android:id="@+id/createNewMULinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@id/swiperefreshContacts"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_displayContacts">
+
+        <!--        <Button-->
+        <!--            android:id="@+id/button"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:padding="5dp"-->
+        <!--            android:text="Button"-->
+        <!--            tools:layout_editor_absoluteY="68dp"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@id/createNewMUConstraintLayout"/>-->
+
+        <TextView
+            android:id="@+id/createNewMUCText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/people_def_avatar"
+            android:text="@string/create_new_group"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    </LinearLayout>
+
+
+
+    <!--    <menu-->
+<!--        android:layout_marginBottom="57dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/toolbar_displayContacts"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/toolbar_displayContacts">-->
+
+<!--        <item-->
+<!--            android:id="@+id/menu_refresh"-->
+<!--            android:showAsAction="never"-->
+<!--            android:title="@string/menu_refresh" />-->
+
+<!--    </menu>-->
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

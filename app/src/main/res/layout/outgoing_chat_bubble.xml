@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:padding="5dp"
+    android:paddingStart="20dp"
+    android:paddingEnd="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/innerLayoutOutgoingBubble"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/outgoing_message_image"
+            android:layout_width="180dp"
+            android:layout_height="210dp"
+            android:layout_gravity="end"
+            android:scaleType="fitCenter"
+            tools:srcCompat="@tools:sample/backgrounds/scenic"
+            android:visibility="gone"/>
+
+        <CheckedTextView
+            android:id="@+id/userMessageTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="@drawable/round_edit_text_blue"
+            android:checkMarkTint="@android:color/white"
+            android:checked="true"
+            android:gravity="bottom"
+            android:padding="5dp"
+            android:textColor="#FFFFFF"
+            tools:text="@tools:sample/lorem" />
+
+        <TextView
+            android:id="@+id/outgoingMessageInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            tools:text="@tools:sample/date/ddmmyy" />
+
+<!--        <ImageView-->
+<!--            android:id="@+id/messageStatusImageView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@drawable/check_mark_sent" />-->
+    </LinearLayout>
+
+
+</LinearLayout>

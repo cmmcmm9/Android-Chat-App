@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/out"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dp"
+    android:paddingStart="5dp"
+    android:paddingEnd="20dp">
+
+    <LinearLayout
+        android:id="@+id/innerLinearLayoutOutgoing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/incoming_message_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            tools:text="@tools:sample/full_names" />
+
+        <ImageView
+            android:id="@+id/incoming_message_image"
+            android:layout_width="180dp"
+            android:layout_height="210dp"
+            android:layout_gravity="start"
+            android:scaleType="fitCenter"
+            tools:srcCompat="@tools:sample/backgrounds/scenic"
+            android:visibility="gone"/>
+
+
+        <CheckedTextView
+            android:id="@+id/contactMessageTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_edit_text_orange"
+            android:checkMarkTint="@android:color/white"
+            android:checked="true"
+            android:gravity="bottom"
+            android:padding="5dp"
+            android:textColor="#FFFFFF"
+            tools:text="@tools:sample/lorem" />
+
+
+
+        <TextView
+            android:id="@+id/incomingMessageInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="@tools:sample/date/ddmmyy" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

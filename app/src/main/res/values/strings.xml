@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">TapIn</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="registerButton">Register Button</string>
+    <string name="forgot_password_click_here">Forgot Password? Click Here</string>
+    <string name="title_activity_settings_drawer">settings_drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="check_mark">Check Mark Animation</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="title_activity_main_page">main_page</string>
+    <string name="enter_message">Enter message</string>
+    <string name="send">SEND</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="register2">Register</string>
+    <string name="confirm_email_address">Confirm Email Address</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register3">Register</string>
+    <string name="tapin_app_logo">TapIn App Logo</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="full_name">Full Name</string>
+    <string name="default_notification_channel_id" />
+    <string name="fcm_message">Firebase Message!</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="available_today">Available Today:</string>
+    <string name="create_new_group">Create New Group</string>
+    <string name="group_name">Group Name</string>
+    <string name="group_members">Group Members</string>
+    <string name="create_group">Create Group</string>
+    <string name="delete">Delete</string>
+    <string name="delete_contact">Delete Contact</string>
+    <string name="cancel">Cancel</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="chat_members">Chat Members</string>
+    <string name="search">Search...</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="email">Email</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="reset">Reset</string>
+</resources>

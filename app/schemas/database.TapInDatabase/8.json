@@ -1,0 +1,636 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 8,
+    "identityHash": "3fffa69070f6902763f734c1c539c172",
+    "entities": [
+      {
+        "tableName": "User",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userJID` TEXT NOT NULL, `fullName` TEXT, `email` TEXT, `phoneNumber` TEXT, `dateCreated` TEXT NOT NULL, `userAvatar` BLOB, PRIMARY KEY(`userJID`))",
+        "fields": [
+          {
+            "fieldPath": "userJID",
+            "columnName": "userJID",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fullName",
+            "columnName": "fullName",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "phoneNumber",
+            "columnName": "phoneNumber",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "dateCreated",
+            "columnName": "dateCreated",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userAvatar",
+            "columnName": "userAvatar",
+            "affinity": "BLOB",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "userJID"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "UserTimeAvailable",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`rowId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userJID` TEXT NOT NULL, `timeAvailableStart` TEXT NOT NULL, `timeAvailableEnd` TEXT NOT NULL, `dayOfTheWeek` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "rowId",
+            "columnName": "rowId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userJID",
+            "columnName": "userJID",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timeAvailableStart",
+            "columnName": "timeAvailableStart",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timeAvailableEnd",
+            "columnName": "timeAvailableEnd",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dayOfTheWeek",
+            "columnName": "dayOfTheWeek",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "rowId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "UserStatus",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`rowId` INTEGER PRIMARY KEY AUTOINCREMENT, `userJID` TEXT NOT NULL, `isOnline` INTEGER NOT NULL, `isAvailable` INTEGER NOT NULL, `lastOnlineTime` TEXT NOT NULL, `lastOnlineDate` TEXT NOT NULL, `isTyping` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "rowId",
+            "columnName": "rowId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "userJID",
+            "columnName": "userJID",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isOnline",
+            "columnName": "isOnline",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isAvailable",
+            "columnName": "isAvailable",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastOnlineTime",
+            "columnName": "lastOnlineTime",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastOnlineDate",
+            "columnName": "lastOnlineDate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isTyping",
+            "columnName": "isTyping",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "rowId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "UserSettings",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`rowId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userJID` TEXT NOT NULL, `stayLoggedIn` INTEGER NOT NULL, `theme` TEXT NOT NULL, `isAppLocked` INTEGER NOT NULL, `allowScreenShots` INTEGER NOT NULL, `backUpChats` INTEGER NOT NULL, `messageFontSize` TEXT NOT NULL, `autoDownloadPictures` INTEGER NOT NULL, `showReadReceipts` INTEGER NOT NULL, `showTypingIndicator` INTEGER NOT NULL, `useLocation` INTEGER NOT NULL, `silenceAllGroupChats` INTEGER NOT NULL, `displayAvailableTime` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "rowId",
+            "columnName": "rowId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userJID",
+            "columnName": "userJID",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "stayLoggedIn",
+            "columnName": "stayLoggedIn",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "theme",
+            "columnName": "theme",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isAppLocked",
+            "columnName": "isAppLocked",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "allowScreenShots",
+            "columnName": "allowScreenShots",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "backUpChats",
+            "columnName": "backUpChats",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "messageFontSize",
+            "columnName": "messageFontSize",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "autoDownloadPictures",
+            "columnName": "autoDownloadPictures",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "showReadReceipts",
+            "columnName": "showReadReceipts",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "showTypingIndicator",
+            "columnName": "showTypingIndicator",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "useLocation",
+            "columnName": "useLocation",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "silenceAllGroupChats",
+            "columnName": "silenceAllGroupChats",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "displayAvailableTime",
+            "columnName": "displayAvailableTime",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "rowId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "ChatSession",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`chatSessionID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `dateCreated` TEXT NOT NULL, `createdBy` TEXT NOT NULL, `userJID` TEXT NOT NULL, `groupID` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "chatSessionID",
+            "columnName": "chatSessionID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dateCreated",
+            "columnName": "dateCreated",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "createdBy",
+            "columnName": "createdBy",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userJID",
+            "columnName": "userJID",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "groupID",
+            "columnName": "groupID",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "chatSessionID"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Messages",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`messageID` TEXT NOT NULL, `chatSessionID` INTEGER NOT NULL, `messageFrom` TEXT NOT NULL, `messageTo` TEXT NOT NULL, `isIncoming` INTEGER NOT NULL, `isOutgoing` INTEGER NOT NULL, `date` TEXT NOT NULL, `time` TEXT NOT NULL, `messageBody` TEXT NOT NULL, `isEncrypted` INTEGER NOT NULL, PRIMARY KEY(`messageID`))",
+        "fields": [
+          {
+            "fieldPath": "messageID",
+            "columnName": "messageID",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "chatSessionID",
+            "columnName": "chatSessionID",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "messageFrom",
+            "columnName": "messageFrom",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "messageTo",
+            "columnName": "messageTo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isIncoming",
+            "columnName": "isIncoming",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isOutgoing",
+            "columnName": "isOutgoing",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "time",
+            "columnName": "time",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "messageBody",
+            "columnName": "messageBody",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isEncrypted",
+            "columnName": "isEncrypted",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "messageID"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "MessageStatus",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`rowId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `messageID` TEXT NOT NULL, `isRead` INTEGER NOT NULL, `isReceived` INTEGER NOT NULL, `isSent` INTEGER NOT NULL, `isDraft` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "rowId",
+            "columnName": "rowId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "messageID",
+            "columnName": "messageID",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isRead",
+            "columnName": "isRead",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isReceived",
+            "columnName": "isReceived",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isSent",
+            "columnName": "isSent",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isDraft",
+            "columnName": "isDraft",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "rowId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "GroupChat",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`groupID` TEXT NOT NULL, `contactJID` TEXT, `groupName` TEXT NOT NULL, `occupants` TEXT NOT NULL, `isGroupChat` INTEGER NOT NULL, `isSilenced` INTEGER NOT NULL, PRIMARY KEY(`groupID`))",
+        "fields": [
+          {
+            "fieldPath": "groupID",
+            "columnName": "groupID",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contactJID",
+            "columnName": "contactJID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "groupName",
+            "columnName": "groupName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "occupants",
+            "columnName": "occupants",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isGroupChat",
+            "columnName": "isGroupChat",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isSilenced",
+            "columnName": "isSilenced",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "groupID"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Contact",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`contactJID` TEXT NOT NULL, `contactName` TEXT NOT NULL, `contactEmail` TEXT NOT NULL, `contactPhoneNumber` TEXT, `contactAvatar` BLOB, PRIMARY KEY(`contactJID`))",
+        "fields": [
+          {
+            "fieldPath": "contactJID",
+            "columnName": "contactJID",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contactName",
+            "columnName": "contactName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contactEmail",
+            "columnName": "contactEmail",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contactPhoneNumber",
+            "columnName": "contactPhoneNumber",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "contactAvatar",
+            "columnName": "contactAvatar",
+            "affinity": "BLOB",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "contactJID"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "ContactTimeAvailable",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`rowId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `contactJID` TEXT NOT NULL, `timeAvailableStart` TEXT NOT NULL, `timeAvailableEnd` TEXT NOT NULL, `dayOfTheWeek` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "rowId",
+            "columnName": "rowId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contactJID",
+            "columnName": "contactJID",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timeAvailableStart",
+            "columnName": "timeAvailableStart",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timeAvailableEnd",
+            "columnName": "timeAvailableEnd",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dayOfTheWeek",
+            "columnName": "dayOfTheWeek",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "rowId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "ContactStatus",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`rowId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `contactJID` TEXT NOT NULL, `isOnline` INTEGER NOT NULL, `isAvailable` INTEGER NOT NULL, `lastOnlineTime` TEXT NOT NULL, `lastOnlineDate` TEXT NOT NULL, `isTyping` INTEGER NOT NULL, `isBlocked` INTEGER NOT NULL, `isMuted` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "rowId",
+            "columnName": "rowId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "contactJID",
+            "columnName": "contactJID",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isOnline",
+            "columnName": "isOnline",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isAvailable",
+            "columnName": "isAvailable",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastOnlineTime",
+            "columnName": "lastOnlineTime",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastOnlineDate",
+            "columnName": "lastOnlineDate",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isTyping",
+            "columnName": "isTyping",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isBlocked",
+            "columnName": "isBlocked",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "isMuted",
+            "columnName": "isMuted",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "rowId"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3fffa69070f6902763f734c1c539c172')"
+    ]
+  }
+}

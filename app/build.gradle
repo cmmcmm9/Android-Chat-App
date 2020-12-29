@@ -1,0 +1,151 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
+
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlinx-serialization'
+
+android {
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    packagingOptions{
+        exclude 'META-INF/DEPENDENCIES'
+
+    }
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+    defaultConfig {
+        applicationId "com.tapinapp.tapin"
+        minSdkVersion 28
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //multiDexEnabled true
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas")
+                arg("micronaut.processing.incremental", true)
+            }
+        }
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+configurations {
+    all*.exclude group: 'xpp3', module: 'xpp3'
+}
+
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    def room_version = "2.2.5"
+    def work_version = "2.4.0"
+    def lottieVersion = "3.4.1"
+    def ktor_version = "1.4.0"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+
+    android.defaultConfig.vectorDrawables.useSupportLibrary = true
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    //implementation 'com.android.support.constraint:constraint-layout:2.0.1'
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.navigation:navigation-fragment:2.3.2'
+    implementation 'androidx.navigation:navigation-ui:2.3.2'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
+    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'com.google.firebase:firebase-auth:20.0.1'
+    implementation 'com.firebaseui:firebase-ui-auth:6.2.0'
+    implementation 'com.google.firebase:firebase-analytics:18.0.0'
+    implementation 'com.google.firebase:firebase-auth-ktx:20.0.1'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.1.1'
+
+    //CHANGED FROM 4.3.4  to 4.3.5
+    implementation 'org.igniterealtime.smack:smack-android:4.3.5'
+    implementation 'org.igniterealtime.smack:smack-bosh:4.3.5'
+    implementation 'org.igniterealtime.smack:smack-tcp:4.3.5'
+    implementation 'org.igniterealtime.smack:smack-im:4.3.5'
+    implementation 'org.igniterealtime.smack:smack-extensions:4.3.5'
+    // https://mvnrepository.com/artifact/org.igniterealtime.smack/smack-sasl-provided
+    implementation 'org.igniterealtime.smack:smack-sasl-provided:4.3.5'
+    implementation 'org.igniterealtime.smack:smack-experimental:4.3.5'
+
+    implementation 'com.hootsuite.android:nachos:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0-alpha04'
+    implementation 'androidx.biometric:biometric:1.0.1'
+    implementation 'com.squareup.picasso:picasso:2.8'
+
+    //implementation 'org.igniterealtime.smack:smack-omemo:4.4.0-beta2'
+    // https://mvnrepository.com/artifact/org.igniterealtime.smack/smack-xmlparser
+    // https://mvnrepository.com/artifact/org.igniterealtime.smack/smack-xmlparser-xpp3
+    //implementation group: 'org.igniterealtime.smack', name: 'smack-xmlparser-xpp3', version: '4.4.0-beta2'
+
+    //implementation group: 'org.igniterealtime.smack', name: 'smack-xmlparser', version: '4.4.0-beta2'
+
+    implementation 'com.github.thellmund.Android-Week-View:core:5.0.1'
+
+    implementation 'com.google.firebase:firebase-messaging:21.0.0'
+    implementation 'com.google.firebase:firebase-analytics:18.0.0'
+    implementation 'com.google.firebase:firebase-database-ktx:19.5.1'
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+    implementation 'com.google.firebase:firebase-messaging-directboot:21.0.0'
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.4'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:1.3.2"
+
+    implementation "io.ktor:ktor-client-android:$ktor_version"
+    implementation "io.ktor:ktor-client-serialization-jvm:$ktor_version"
+//    implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:0.20.0"
+//    implementation "io.ktor:ktor-serialization:$ktor_version"
+//    implementation "io.ktor:ktor-client-apache:$ktor_version"
+//    implementation "io.ktor:ktor-client-core:$ktor_version"
+//    implementation "io.ktor:ktor-client-core-jvm:$ktor_version"
+//    implementation "io.ktor:ktor-client-cio:$ktor_version"
+//    implementation "io.ktor:ktor-client-okhttp:1.2.6"
+
+
+    implementation "androidx.work:work-runtime-ktx:$work_version"
+
+    // Lifecycle components
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.archLifecycleVersion"
+    kapt "androidx.lifecycle:lifecycle-compiler:$rootProject.archLifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.archLifecycleVersion"
+
+    testImplementation 'org.robolectric:robolectric:4.2.1'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    //view database
+//    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+
+}

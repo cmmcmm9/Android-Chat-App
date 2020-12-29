@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp">
+
+    <ImageView
+        android:id="@+id/displayContactPhoto"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="311dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/displayContactsName"
+        android:layout_width="163dp"
+        android:layout_height="33dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginEnd="124dp"
+        android:layout_marginBottom="17dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="@tools:sample/full_names"
+        />
+
+    <TextView
+        android:id="@+id/contactAvailableTime"
+        android:layout_width="142dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginBottom="2dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.071"
+        tools:text="@tools:sample/date/mmddyy" />
+
+    <ImageView
+        android:id="@+id/contactStatusBubble"
+        android:layout_width="27dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="351dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="39dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/circle_green" />
+
+    <TextView
+        android:id="@+id/availbe_today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="126dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="183dp"
+        android:layout_marginBottom="6dp"
+        android:text="@string/available_today"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

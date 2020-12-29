@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:key="availableTimesPreferencesScreen">
+
+
+        <PreferenceCategory android:title="Availability Times">
+
+                <!--<ListPreference-->
+                <!--    android:defaultValue="08:00"-->
+                <!--    android:entries="@array/start_time_entries"-->
+                <!--    android:entryValues="@array/start_time_values"-->
+                <!--    android:key="weekDayStartTime"-->
+                <!--    android:title="WeekDay Start Time" />-->
+                <!--<ListPreference-->
+                <!--    android:defaultValue="17:00"-->
+                <!--    android:entries="@array/end_time_entries"-->
+                <!--    android:entryValues="@array/end_time_values"-->
+                <!--    android:key="weekDayEndTime"-->
+                <!--    android:title="WeekDay End Time" />-->
+
+                <!--<ListPreference-->
+                <!--    android:defaultValue="08:00"-->
+                <!--    android:entries="@array/start_time_entries"-->
+                <!--    android:entryValues="@array/start_time_values"-->
+                <!--    android:key="weekEndStartTime"-->
+                <!--    android:title="WeekEnd Start Time" />-->
+                <!--<ListPreference-->
+                <!--    android:defaultValue="17:00"-->
+                <!--    android:entries="@array/end_time_entries"-->
+                <!--    android:entryValues="@array/end_time_values"-->
+                <!--    android:key="weekEndEndTime"-->
+                <!--    android:title="WeekEnd End Time" />-->
+
+                <ListPreference
+                    android:defaultValue="08:00"
+                    android:entries="@array/start_time_entries"
+                    android:entryValues="@array/start_time_values"
+                    android:key="sundayStart"
+                    android:title="Sunday Start Time" />
+                <ListPreference
+                    android:defaultValue="17:00"
+                    android:entries="@array/end_time_entries"
+                    android:entryValues="@array/end_time_values"
+                    android:key="sundayEnd"
+                    android:title="Sunday End Time" />
+                <ListPreference
+                    android:defaultValue="08:00"
+                    android:entries="@array/start_time_entries"
+                    android:entryValues="@array/start_time_values"
+                    android:key="mondayStart"
+                    android:title="Monday Start Time" />
+                <ListPreference
+                    android:defaultValue="17:00"
+                    android:entries="@array/end_time_entries"
+                    android:entryValues="@array/end_time_values"
+                    android:key="mondayEnd"
+                    android:title="Monday End Time" />
+                <ListPreference
+                    android:defaultValue="08:00"
+                    android:entries="@array/start_time_entries"
+                    android:entryValues="@array/start_time_values"
+                    android:key="tuesdayStart"
+                    android:title="Tuesday Start Time" />
+                <ListPreference
+                    android:defaultValue="17:00"
+                    android:entries="@array/end_time_entries"
+                    android:entryValues="@array/end_time_values"
+                    android:key="tuesdayEnd"
+                    android:title="Tuesday End Time" />
+                <ListPreference
+                    android:defaultValue="08:00"
+                    android:entries="@array/start_time_entries"
+                    android:entryValues="@array/start_time_values"
+                    android:key="wednesdayStart"
+                    android:title="Wednesday Start Time" />
+                <ListPreference
+                    android:defaultValue="17:00"
+                    android:entries="@array/end_time_entries"
+                    android:entryValues="@array/end_time_values"
+                    android:key="wednesdayEnd"
+                    android:title="Wednesday End Time" />
+                <ListPreference
+                    android:defaultValue="08:00"
+                    android:entries="@array/start_time_entries"
+                    android:entryValues="@array/start_time_values"
+                    android:key="thursdayStart"
+                    android:title="Thursday Start Time" />
+                <ListPreference
+                    android:defaultValue="17:00"
+                    android:entries="@array/end_time_entries"
+                    android:entryValues="@array/end_time_values"
+                    android:key="thursdayEnd"
+                    android:title="Thursday End Time" />
+                <ListPreference
+                    android:defaultValue="08:00"
+                    android:entries="@array/start_time_entries"
+                    android:entryValues="@array/start_time_values"
+                    android:key="fridayStart"
+                    android:title="Friday Start Time" />
+                <ListPreference
+                    android:defaultValue="17:00"
+                    android:entries="@array/end_time_entries"
+                    android:entryValues="@array/end_time_values"
+                    android:key="fridayEnd"
+                    android:title="Friday End Time" />
+                <ListPreference
+                    android:defaultValue="08:00"
+                    android:entries="@array/start_time_entries"
+                    android:entryValues="@array/start_time_values"
+                    android:key="saturdayStart"
+                    android:title="Saturday Start Time" />
+                <ListPreference
+                    android:defaultValue="17:00"
+                    android:entries="@array/end_time_entries"
+                    android:entryValues="@array/end_time_values"
+                    android:key="saturdayEnd"
+                    android:title="Saturday End Time" />
+
+
+        </PreferenceCategory>
+</PreferenceScreen>

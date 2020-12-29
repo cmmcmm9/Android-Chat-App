@@ -1,0 +1,199 @@
+<!--
+  ~ Copyright 2018 The app Open Source Project
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF"
+    android:isScrollContainer="true">
+
+    <PreferenceCategory android:title="General">
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:icon="@android:drawable/ic_lock_lock"
+            android:key="lockApp"
+            android:summary="Check this to lock this app with a fingerprint."
+            android:title="Lock App" />
+    </PreferenceCategory>
+    <PreferenceCategory app:title="@string/messages_header">
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:icon="@drawable/read_icon"
+            android:key="showRead"
+            android:summary="Select this if you wish for your contacts to be able to see when you have read a message."
+            android:title="Show Read Receipts" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="showTyping"
+            android:summary="Select this if you wish for your contacts to be able to see when you are typing"
+            android:title="Show Typing Status" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="encrypt-messages"
+            android:summary="Select this to encrypt your messages."
+            android:title="Encrypt Messages"/>
+        <ListPreference
+            android:key="messageFontSize"
+            android:title="Message Font Size"
+            app:defaultValue="14.0"
+            app:entries="@array/message_font_size_entries"
+            app:entryValues="@array/message_font_size_values"
+            app:useSimpleSummaryProvider="true" />
+
+        <!--        <ListPreference-->
+        <!--            app:defaultValue="reply"-->
+        <!--            app:entries="@array/reply_entries"-->
+        <!--            app:entryValues="@array/reply_values"-->
+        <!--            app:key="reply"-->
+        <!--            app:title="@string/reply_title"-->
+        <!--            app:useSimpleSummaryProvider="true" />-->
+
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Group Chats">
+
+        <SwitchPreferenceCompat
+            app:key="silenceAllGroupChats"
+            app:title="Silence All Group Chats" />
+
+        <!--        <SwitchPreferenceCompat-->
+        <!--            app:dependency="sync"-->
+        <!--            app:key="attachment"-->
+        <!--            app:summaryOff="@string/attachment_summary_off"-->
+        <!--            app:summaryOn="@string/attachment_summary_on"-->
+        <!--            app:title="@string/attachment_title" />-->
+
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="Availability Times"
+        app:isPreferenceVisible="false">
+
+        <ListPreference
+            android:defaultValue="08:00"
+            android:entries="@array/start_time_entries"
+            android:entryValues="@array/start_time_values"
+            android:key="weekDayStartTime"
+            android:title="WeekDay Start Time" />
+        <ListPreference
+            android:defaultValue="17:00"
+            android:entries="@array/end_time_entries"
+            android:entryValues="@array/end_time_values"
+            android:key="weekDayEndTime"
+            android:title="WeekDay End Time" />
+
+        <ListPreference
+            android:defaultValue="08:00"
+            android:entries="@array/start_time_entries"
+            android:entryValues="@array/start_time_values"
+            android:key="weekEndStartTime"
+            android:title="WeekEnd Start Time" />
+        <ListPreference
+            android:defaultValue="17:00"
+            android:entries="@array/end_time_entries"
+            android:entryValues="@array/end_time_values"
+            android:key="weekEndEndTime"
+            android:title="WeekEnd End Time" />
+
+        <ListPreference
+            android:defaultValue="08:00"
+            android:entries="@array/start_time_entries"
+            android:entryValues="@array/start_time_values"
+            android:key="sundayStart"
+            android:title="Sunday Start Time" />
+        <ListPreference
+            android:defaultValue="17:00"
+            android:entries="@array/end_time_entries"
+            android:entryValues="@array/end_time_values"
+            android:key="sundayEnd"
+            android:title="Sunday End Time" />
+        <ListPreference
+            android:defaultValue="08:00"
+            android:entries="@array/start_time_entries"
+            android:entryValues="@array/start_time_values"
+            android:key="mondayStart"
+            android:title="Monday Start Time" />
+        <ListPreference
+            android:defaultValue="17:00"
+            android:entries="@array/end_time_entries"
+            android:entryValues="@array/end_time_values"
+            android:key="mondayEnd"
+            android:title="Monday End Time" />
+        <ListPreference
+            android:defaultValue="08:00"
+            android:entries="@array/start_time_entries"
+            android:entryValues="@array/start_time_values"
+            android:key="tuesdayStart"
+            android:title="Tuesday Start Time" />
+        <ListPreference
+            android:defaultValue="17:00"
+            android:entries="@array/end_time_entries"
+            android:entryValues="@array/end_time_values"
+            android:key="tuesdayEnd"
+            android:title="Tuesday End Time" />
+        <ListPreference
+            android:defaultValue="08:00"
+            android:entries="@array/start_time_entries"
+            android:entryValues="@array/start_time_values"
+            android:key="wednesdayStart"
+            android:title="Wednesday Start Time" />
+        <ListPreference
+            android:defaultValue="17:00"
+            android:entries="@array/end_time_entries"
+            android:entryValues="@array/end_time_values"
+            android:key="wednesdayEnd"
+            android:title="Wednesday End Time" />
+        <ListPreference
+            android:defaultValue="08:00"
+            android:entries="@array/start_time_entries"
+            android:entryValues="@array/start_time_values"
+            android:key="thursdayStart"
+            android:title="Thursday Start Time" />
+        <ListPreference
+            android:defaultValue="17:00"
+            android:entries="@array/end_time_entries"
+            android:entryValues="@array/end_time_values"
+            android:key="thursdayEnd"
+            android:title="Thursday End Time" />
+        <ListPreference
+            android:defaultValue="08:00"
+            android:entries="@array/start_time_entries"
+            android:entryValues="@array/start_time_values"
+            android:key="fridayStart"
+            android:title="Friday Start Time" />
+        <ListPreference
+            android:defaultValue="17:00"
+            android:entries="@array/end_time_entries"
+            android:entryValues="@array/end_time_values"
+            android:key="fridayEnd"
+            android:title="Friday End Time" />
+        <ListPreference
+            android:defaultValue="08:00"
+            android:entries="@array/start_time_entries"
+            android:entryValues="@array/start_time_values"
+            android:key="saturdayStart"
+            android:title="Saturday Start Time" />
+        <ListPreference
+            android:defaultValue="17:00"
+            android:entries="@array/end_time_entries"
+            android:entryValues="@array/end_time_values"
+            android:key="saturdayEnd"
+            android:title="Saturday End Time" />
+
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

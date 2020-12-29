@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_page_layout_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main_page">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#005AFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:logo="@drawable/asset1ldpi"
+            app:popupTheme="@style/AppTheme"
+            app:title="TapIn"
+            app:titleTextAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:titleTextColor="#FFFFFF" />
+
+        <Spinner
+            android:id="@+id/main_page_settings_spinner"
+            android:layout_width="56dp"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_more_vert_white_18dp"
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="@id/toolbar"
+            app:layout_constraintEnd_toEndOf="@id/toolbar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:backgroundTint="#FFFFFF"
+        app:fabSize="normal"
+        app:maxImageSize="56dp"
+        app:srcCompat="@drawable/ic_sms_24px" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewInChatSessionPage"
+        android:layout_width="match_parent"
+        android:layout_height="664dp"
+        android:layout_marginTop="60dp"
+        android:visibility="visible"
+        tools:itemCount="10"
+        tools:listitem="@layout/recycler_view_item_chatsession" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/in_chats_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!-- A horizontal line between the chatbox and RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_message_list"
+        android:layout_width="match_parent"
+        android:layout_height="616dp"
+        android:scrollIndicators="right"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/typing_status_display_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:reverseLayout="true"
+        tools:itemCount="10"
+        tools:listitem="@layout/incoming_chat_bubble" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="#dfdfdf"
+        app:layout_constraintBottom_toTopOf="@+id/layout_chatbox"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/typing_indicator_lottie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:padding="5dp"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/view"
+        app:layout_constraintStart_toStartOf="@id/view"
+        app:lottie_autoPlay="false"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/typingstatus" />
+
+    <TextView
+        android:id="@+id/typing_status_display_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:paddingTop="10dp"
+        android:textColor="@android:color/black"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/typing_indicator_lottie"
+        app:layout_constraintStart_toStartOf="@id/view"
+        tools:text="@tools:sample/full_names" />
+
+    <LinearLayout
+        android:id="@+id/layout_chatbox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#D3D3D3"
+        android:minHeight="48dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <Button
+            android:id="@+id/select_image_button"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ic_add_photo_alternate_24px" />
+
+        <EditText
+            android:id="@+id/edittext_chatbox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_weight="1"
+            android:autofillHints=""
+            android:background="@android:color/transparent"
+            android:hint="@string/enter_message"
+            android:inputType="text"
+            android:maxLines="6" />
+
+        <Button
+            android:id="@+id/button_chatbox_send"
+            android:layout_width="76dp"
+            android:layout_height="48dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/round_button"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/send"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#005AFF"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/contact_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="154dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="153dp"
+        android:layout_marginBottom="13dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="@tools:sample/full_names" />
+
+    <Button
+        android:id="@+id/toolbar_button_in_chats"
+        android:layout_width="37dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="374dp"
+        android:background="@drawable/ic_arrow_back_24px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/in_chat_avatar"
+        android:layout_width="63dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="51dp"
+        android:layout_marginLeft="51dp"
+        android:layout_marginEnd="298dp"
+        android:layout_marginRight="298dp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar3"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar3"
+        app:layout_constraintStart_toStartOf="@+id/toolbar3"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars[3]" />
+
+    <Spinner
+        android:id="@+id/inChatsSpinner"
+        android:layout_width="56dp"
+        android:layout_height="47dp"
+        android:background="@drawable/ic_more_vert_white_18dp"
+        android:dropDownWidth="wrap_content"
+        android:spinnerMode="dropdown"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar3"
+        app:layout_constraintEnd_toEndOf="@id/toolbar3"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/text_to_search_in_chats"
+        android:layout_width="360dp"
+        android:layout_height="58dp"
+        android:background="@android:color/darker_gray"
+        android:ems="10"
+        android:hint="@string/search"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/common_google_signin_btn_text_dark_default"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/toolbar3"
+        app:layout_constraintEnd_toEndOf="@id/toolbar3" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

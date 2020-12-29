@@ -1,0 +1,17 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/displayContactsFrameLayou"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.tapin.ui.main.DisplayContacts">
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/displayContactsRecyclerActivity"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="5dp"-->
+<!--        android:visibility="visible"-->
+<!--        tools:itemCount="10"-->
+<!--        tools:listitem="@layout/display_contacts" />-->
+
+</FrameLayout>
