@@ -7,5 +7,5 @@ In terms of security, as previously mentioned, end-to-end encryption can be used
 
 # Backend Implementation
 For the backend, Openfire XMPP server was used as well as an embedded Ktor server. 
-Openfire Changes: https://github.com/cmmcmm9/OpenfireServer
-Ktor embedded server: https://github.com/cmmcmm9/Openfire-Plugin
+* Openfire Changes: https://github.com/cmmcmm9/OpenfireServer
+* Ktor embedded server: https://github.com/cmmcmm9/Openfire-Plugin
