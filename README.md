@@ -139,7 +139,46 @@ The application uses Android Room as a local persistence layer to support offlin
 
 - Ktor embedded server plugin:  
   https://github.com/cmmcmm9/Openfire-Plugin
+  
+## Architecture Overview
 
+The following diagram illustrate the high-level system architecture, message flow, and local data model.
+
+```mermaid
+sequenceDiagram
+    participant UserA
+    participant AppA as App (Sender)
+    participant Encrypt as RSA Manager
+    participant XMPP as XMPP Server
+    participant AppB as App (Receiver)
+    participant FCM as Firebase Cloud Messaging
+    participant Worker as Background Worker
+    participant Room as Local DB
+
+    %% Sending Message
+    UserA->>AppA: Send Message
+    AppA->>Encrypt: Encrypt with recipient public key
+    Encrypt-->>AppA: Encrypted message
+    AppA->>XMPP: Send message
+
+    %% Online Delivery
+    XMPP->>AppB: Deliver message (if online)
+    AppB->>Encrypt: Decrypt with private key
+    AppB->>Room: Store message
+    AppB->>UserA: Send read receipt
+
+    %% Offline Flow
+    XMPP-->>FCM: Trigger push notification
+    FCM->>Worker: Deliver data payload
+    Worker->>XMPP: Fetch offline messages
+    Worker->>Room: Store messages
+    Worker->>AppB: Trigger notification
+
+    %% Key Sync
+    Encrypt->>Firebase: Upload public key
+    Firebase-->>AppA: Notify key changes
+    AppA->>Room: Update cached contact keys
+```
 ---
 
 ## Technical Notes / Limitations
