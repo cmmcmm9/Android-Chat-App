@@ -1,11 +1,171 @@
-# Android-Chat-App
-# Summary
-My application allows users to send messages using XMPP. For the server side, Openfire was used to handle the distribution of XMPP messages. In terms of encryption, messages support end-to-end encryption if the user so chooses. Encryption is done using the RSA algorithm, and public keys for each user are stored in the Firebase Realtime Database, and the private keys are stored using the Android Key Store. One of my app's main features is the user-defined "available hours," which determine when the user receives a notification for any message. If a user sets their available time between 8:00 a.m. and 5:00 p.m., then any messages received between these times will trigger a regular notification on the device. Though if it is received any time before 8:00 or after 5:00, then the app will only display a silent notification on the device. 
-As well as controlling when notifications are displayed with the available hours, users can mute individual conversations. Additionally, there is a setting to mute all group conversations globally. If a chat is silenced, no notification will be displayed, not even a silent one, but the user has still received all their messages.
-Each message also shows sent, read, and received receipts to indicate further information to the user. If a user desires, they can turn off read receipts and typing indicators, so any recipient will never know if the user is typing or if they have read their message. Also, every user can view their contact's availability times and presence (offline, away, and online). Note that even if a user is technically online (using the application), but they are outside of their availability hours, the user will appear offline to all their contacts.
-In terms of security, as previously mentioned, end-to-end encryption can be used to secure all messages if the user has this setting on. For additional protection, all XMPP traffic is sent over secure network traffic, using the SSL certificates obtained via Lets Encrypt for the app's domain, tapinapp.com. To secure the app itself, the user can choose to lock the app with biometric credentials (fingerprint). The app attempts to disallow screenshots, though this is not guaranteed protection, as it depends on what Android version the device is running and whether the device is rooted. 
+# Android Chat App
 
-# Backend Implementation
-For the backend, Openfire XMPP server was used as well as an embedded Ktor server. 
-* Openfire Changes: https://github.com/cmmcmm9/OpenfireServer
-* Ktor embedded server: https://github.com/cmmcmm9/Openfire-Plugin
+## Overview
+
+> ⚠️ **Note:** This project was developed as part of a university capstone.  
+> While it demonstrates core concepts in messaging, security, and mobile development, it does **not reflect my current engineering practices or experience**.  
+> Since completing this project, I have gained 6+ years of professional experience in software engineering and architecture, working with more modern patterns, tools, and production-scale systems.
+
+This application is an Android-based chat platform that enables users to send messages using the XMPP protocol. It integrates real-time messaging, user presence, configurable notifications, and optional end-to-end encryption.
+
+---
+
+## Features
+
+### Messaging & Presence
+- Real-time messaging via XMPP
+- Message status indicators:
+  - Sent
+  - Delivered
+  - Read
+- Typing indicators (optional)
+- Presence visibility:
+  - Online
+  - Away
+  - Offline
+
+### Background Processing & Message Sync
+- Firebase Cloud Messaging (FCM) integration for push notifications
+- Intelligent job handling:
+  - Short tasks handled immediately
+  - Long-running tasks delegated to WorkManager
+- Background synchronization includes:
+  - Retrieval of offline messages (1:1 and group chat)
+  - Contact updates (vCard changes)
+  - Avatar cache invalidation
+
+### Offline Message Handling
+- Offline messages retrieved via background worker upon notification
+- Uses temporary authentication tokens to securely reconnect to XMPP server
+- Messages are processed and stored locally, then surfaced via notifications
+
+### Media & Profile Updates
+- Avatar updates handled via cache invalidation (Picasso)
+- Contact metadata (vCard) updates synchronized in background
+
+### Notification Controls
+- **User-defined "Available Hours"**
+  - Full notifications during active hours
+  - Silent notifications outside of defined time ranges
+- Conversation-level muting
+- Global group chat muting
+- Fully silent chats (no notifications at all)
+
+### Privacy Controls
+- Optional disabling of:
+  - Read receipts
+  - Typing indicators
+- Contacts can view availability windows and presence status
+  - Users appear offline outside their defined availability hours
+
+---
+
+## Security
+
+### End-to-End Encryption (Optional)
+- RSA-based encryption
+- Public keys stored in Firebase Realtime Database
+- Private keys stored securely using Android Keystore
+
+### Key Management
+- RSA key pair generated and stored in Android Keystore
+- Automatic public key synchronization with Firebase
+- Real-time updates of contact public keys via Firebase listeners
+- Local caching of contact keys for encryption performance
+
+### Transport Security
+- All XMPP traffic secured via SSL/TLS
+- Certificates provided by Let's Encrypt
+
+### Application-Level Security
+- Biometric authentication (fingerprint)
+- Screenshot blocking (best effort, device/OS dependent)
+
+---
+
+## Local Data Storage (Room Database)
+
+The application uses Android Room as a local persistence layer to support offline functionality, caching, and efficient data access.
+
+### Design Overview
+- Room is used as the primary local data source
+- A repository pattern abstracts database access from the rest of the application
+- Data is normalized across multiple entities and relationship tables
+
+### Key Capabilities
+- **Offline-first behavior**
+  - Messages, contacts, and metadata are stored locally
+  - Enables message access and UI rendering without immediate network calls
+
+- **Relational Data Modeling**
+  - Complex relationships are represented using join tables and DAO compositions:
+    - Users ↔ Settings
+    - Users ↔ Status
+    - Contacts ↔ Availability
+    - Chat Sessions ↔ Messages
+    - Group Chats ↔ Participants
+
+- **Granular DAO Structure**
+  - Separate DAOs for:
+    - Users and contacts
+    - Chat sessions and messages
+    - Status and availability
+    - Group chat relationships
+  - Promotes modular access and separation of concerns
+
+- **Repository Abstraction**
+  - A centralized `Repository` layer coordinates all database operations
+  - Used across encryption, messaging, and background workers
+
+### Synchronization Strategy
+- Local database is continuously synchronized with:
+  - Firebase Realtime Database (e.g., public keys, tokens)
+  - XMPP server (messages, presence, offline retrieval)
+- Background workers update local state after receiving push notifications
+
+### Notes / Limitations
+- Schema design reflects early-stage modeling and could be simplified with modern approaches
+- Lacks more advanced patterns such as paging, caching strategies, or reactive streams (e.g., Flow)
+
+## Architecture
+
+### Backend Components
+- **Openfire XMPP Server** for message routing and presence
+- **Embedded Ktor server** for custom backend logic and extensions. It was embedded into the Openfire XMPP Server
+
+### Related Repositories
+- Openfire modifications:  
+  https://github.com/cmmcmm9/OpenfireServer
+
+- Ktor embedded server plugin:  
+  https://github.com/cmmcmm9/Openfire-Plugin
+
+---
+
+## Technical Notes / Limitations
+
+- Encryption implementation is simplified and not production-grade by modern standards
+- Architecture reflects early-stage design decisions and learning-phase tradeoffs
+- Some platform limitations (e.g., screenshot prevention) depend on Android OS behavior
+- The project is not actively maintained
+
+---
+
+## Why This Project Still Matters
+
+This project highlights:
+- Early experience with distributed messaging systems (XMPP)
+- Implementation of client-side encryption concepts
+- Mobile UX considerations around notifications and availability
+- Backend integration with real-time communication systems
+
+---
+
+## Looking Forward
+
+While I am not actively maintaining this project, my current work focuses on:
+- Leveraging Kotlin Multiplatform for use across Mobile, Web, Desktop, and Server targets
+- Scalable backend systems
+- Modern architectures (microservices, event-driven systems)
+- Cloud-native development
+- Production-grade security practices
